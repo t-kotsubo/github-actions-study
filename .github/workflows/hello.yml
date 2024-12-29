@@ -1,0 +1,8 @@
+name: Hello # ワークフロー名
+on: [push] # トリガーイベント(配列で複数のイベントを指定可能)
+jobs: # ジョブの定義
+    hello: # ジョブ名
+        runs-on: ubuntu-latest # ランナーの指定
+        steps: # ステップの定義
+            - run: echo "Hello world" # 実行コマンド
+            - uses: actions/checkout@v4 # アクションの呼び出し

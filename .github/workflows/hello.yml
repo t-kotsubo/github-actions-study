@@ -6,8 +6,10 @@ jobs: # ジョブの定義(複数のジョブを定義可能)
         steps: # ステップの定義(複数のステップを定義可能:ステップはワークフローにおける処理の最小単位)
             - run: echo "Hello world" # 実行コマンド(runキーで任意のシェルコマンドを実行可能)
             - uses: actions/checkout@v4 # アクションの呼び出し(usesキーでGitHubマーケットプレイスや自分のリポジトリにある既存のアクションを使用する際に指定)
-    nice_to_meet_you:
+    hello2:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "Nice to meet you"
+            - run: | # 複数行のシェルコマンドを順番に実行する場合はパイプ(|)で区切る
+                echo "Hello!"
+                echo "Nice to meet you."
             - uses: actions/checkout@v4

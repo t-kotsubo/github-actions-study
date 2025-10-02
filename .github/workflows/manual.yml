@@ -1,7 +1,7 @@
 name: Manual
 on:
   workflow_dispatch: # 手動トリガー
-    inputs:
+    inputs: # 入力パラメータはinputsキーで定義
       greeting:
         type: string
         default: "Hello"

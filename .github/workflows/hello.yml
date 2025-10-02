@@ -2,7 +2,12 @@ name: Hello # ワークフロー名
 on: [push] # トリガーイベント(配列で複数のイベントを指定可能) on: pushと単独で指定も可能
 jobs: # ジョブの定義(複数のジョブを定義可能)
     hello: # ジョブ名
-        runs-on: ubuntu-latest # ランナーの指定
-        steps: # ステップの定義
+        runs-on: ubuntu-latest # ランナーの指定(必ずジョブごとに指定する必要がある)
+        steps: # ステップの定義(複数のステップを定義可能:ステップはワークフローにおける処理の最小単位)
             - run: echo "Hello world" # 実行コマンド(runキーで任意のシェルコマンドを実行可能)
-            - uses: actions/checkout@v4 # アクションの呼び出し(usesキーでGitHub Actionsマーケットプレイスのアクションを呼び出し可能)
+            - uses: actions/checkout@v4 # アクションの呼び出し(usesキーでGitHubマーケットプレイスや自分のリポジトリにある既存のアクションを使用する際に指定)
+    nice_to_meet_you:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "Nice to meet you"
+            - uses: actions/checkout@v4
